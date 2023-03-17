@@ -1,0 +1,46 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:units="clr-namespace:PokerTable.Forms.UI.Units"
+    xmlns:based="clr-namespace:Jamesnet.Wpf.Controls;assembly=Jamesnet.Wpf">
+
+    <ControlTemplate TargetType="{x:Type units:TableListItem}" x:Key="BlindsTemplate">
+        <based:JamesGrid Rows="Auto, Auto, Auto, Auto"
+                         Columns="*">
+            <TextBlock Text="{Binding DataType}"/>
+            <TextBlock Text="{Binding Header}"/>
+            <TextBlock Text="{Binding Value}"/>
+            <units:ActionList ItemsSource="{Binding Actions}"/>
+        </based:JamesGrid>
+    </ControlTemplate>
+
+    <ControlTemplate TargetType="{x:Type units:TableListItem}" x:Key="PreFlopTemplate">
+        <based:JamesGrid Rows="Auto, Auto, Auto"
+                         Columns="*">
+            <TextBlock Text="{Binding DataType}"/>
+            <units:ActionList ItemsSource="{Binding Actions}"/>
+        </based:JamesGrid>
+    </ControlTemplate>
+
+    <ControlTemplate TargetType="{x:Type units:TableListItem}" x:Key="FlopTemplate">
+        <based:JamesGrid Rows="Auto, Auto, Auto"
+                         Columns="*">
+            <TextBlock Text="{Binding DataType}"/>
+            <units:ActionList ItemsSource="{Binding Actions}"/>
+        </based:JamesGrid>
+    </ControlTemplate>
+    
+    <Style TargetType="{x:Type units:TableListItem}">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding DataType}" Value="Blind">
+                <Setter Property="Template" Value="{StaticResource BlindsTemplate}"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding DataType}" Value="PreFlop">
+                <Setter Property="Template" Value="{StaticResource PreFlopTemplate}"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding DataType}" Value="Flop">
+                <Setter Property="Template" Value="{StaticResource FlopTemplate}"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

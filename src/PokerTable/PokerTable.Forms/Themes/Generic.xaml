@@ -1,0 +1,12 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/PokerTable.Forms;component/Themes/Units/ActionListItem.xaml"/>
+        <ResourceDictionary Source="/PokerTable.Forms;component/Themes/Units/ActionList.xaml"/>
+        <ResourceDictionary Source="/PokerTable.Forms;component/Themes/Units/TableListItem.xaml"/>
+        <ResourceDictionary Source="/PokerTable.Forms;component/Themes/Units/TableList.xaml"/>
+        <ResourceDictionary Source="/PokerTable.Forms;component/Themes/Views/MainContent.xaml"/>
+        <ResourceDictionary Source="/PokerTable.Forms;component/Themes/Views/MainWindow.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>
