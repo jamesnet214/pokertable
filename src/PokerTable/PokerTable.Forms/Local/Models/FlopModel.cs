@@ -7,7 +7,7 @@ namespace PokerTable.Forms.Local.Models
     {
         internal IRoundData DataGen()
         {
-            Header = "Flip";
+            Header = "Flop";
 
             return this;
         }

@@ -4,6 +4,8 @@
     {
         internal IRoundData DataGen()
         {
+            Header = "Pre-Flop";
+
             Actions = new();
             Actions.Add(new BettingModel().DataGen("Dandy", "Raise", 4000));
             Actions.Add(new FoldModel().DataGen("Unknown", "Fold"));
