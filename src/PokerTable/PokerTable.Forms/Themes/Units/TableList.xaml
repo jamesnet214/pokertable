@@ -34,13 +34,15 @@
                     <Border Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
-                        <based:JamesGrid Rows="Auto, Auto"
+                        <based:JamesGrid Rows="Auto, *"
                                          Columns="*">
                             <ListBox Style="{StaticResource HeaderList}"
+                                     HorizontalAlignment="Left"
+                                     Width="{Binding ElementName=items, Path=ActualWidth}"
                                      ItemsSource="{TemplateBinding ItemsSource}"/>
                             <ScrollViewer ScrollViewer.HorizontalScrollBarVisibility="Auto"
                                           ScrollViewer.VerticalScrollBarVisibility="Auto">
-                                <ItemsPresenter/>
+                                <ItemsPresenter x:Name="items"/>
 
                             </ScrollViewer>
                         </based:JamesGrid>
