@@ -8,7 +8,7 @@ namespace PokerTable
     {
         protected override Window CreateShell()
         {
-            return new MainWindow();
+            return new PokerWindow();
         }
     }
 }

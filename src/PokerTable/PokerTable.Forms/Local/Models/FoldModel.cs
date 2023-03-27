@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace PokerTable.Forms.Local.Models
+﻿namespace PokerTable.Forms.Local.Models
 {
     public class FoldModel : ActionModel
     {

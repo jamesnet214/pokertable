@@ -1,4 +1,4 @@
-﻿using PokerTable.Settings;
+﻿using PokerTable.Properties;
 using System;
 
 namespace PokerTable
@@ -9,6 +9,7 @@ namespace PokerTable
         private static void Main(string[] args)
         {
             _ = new App()
+                .AddInversionModule<ViewModules>()
                 .AddWireDataContext<WireDataContext>()
                 .Run();
         }
