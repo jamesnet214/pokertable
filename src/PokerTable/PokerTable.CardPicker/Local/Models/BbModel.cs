@@ -8,7 +8,8 @@ namespace PokerTable.CardPicker.Local.Models
 {
     public class BbModel : SlotModel
     {
-        internal SlotModel DataGen()
+				public BbModel(int seatNumber) :base(seatNumber) { }
+				internal SlotModel DataGen()
         {
             Name = "BB";
             return this;

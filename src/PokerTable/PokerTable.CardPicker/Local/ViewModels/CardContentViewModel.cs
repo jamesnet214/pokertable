@@ -27,16 +27,16 @@ namespace PokerTable.CardPicker.Local.ViewModels
         private List<SlotModel> GetSlots()
         {
             List<SlotModel> source = new();
-            source.Add(new DealerModel().DataGen());
-            source.Add(new SbModel().DataGen());
-            source.Add(new BbModel().DataGen());
-            source.Add(new SlotModel().DataGen());
-            source.Add(new SlotModel().DataGen());
-            source.Add(new SlotModel().DataGen());
-            source.Add(new SlotModel().DataGen());
-            source.Add(new SlotModel().DataGen());
-            source.Add(new SlotModel().DataGen());
-            source.Add(new SlotModel().DataGen());
+            source.Add(new DealerModel(1).DataGen());
+            source.Add(new SbModel(2).DataGen());
+            source.Add(new BbModel(3).DataGen());
+            source.Add(new SlotModel(4).DataGen());
+            source.Add(new SlotModel(5).DataGen());
+            source.Add(new SlotModel(6).DataGen());
+            source.Add(new SlotModel(7).DataGen());
+            source.Add(new SlotModel(8).DataGen());
+            source.Add(new SlotModel(9).DataGen());
+            source.Add(new SlotModel(10).DataGen());
 
             return source;
         }
