@@ -28,8 +28,8 @@ namespace PokerTable.CardPicker.Local.ViewModels
         {
             List<SlotModel> source = new();
             source.Add(new DealerModel().DataGen());
-            source.Add(new BbModel().DataGen());
             source.Add(new SbModel().DataGen());
+            source.Add(new BbModel().DataGen());
             source.Add(new SlotModel().DataGen());
             source.Add(new SlotModel().DataGen());
             source.Add(new SlotModel().DataGen());
