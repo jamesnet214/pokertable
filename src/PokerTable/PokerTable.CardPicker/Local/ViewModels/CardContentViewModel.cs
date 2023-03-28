@@ -44,7 +44,7 @@ namespace PokerTable.CardPicker.Local.ViewModels
         [RelayCommand]
         private void DragOverCheck(CardDragOverArgs args)
         {
-            if (args.TargetObject.Name == "SB")
+            if (args.TargetObject.Name == "SB" && args.DroppedObject.Name == "BB")
             {
                 args.Cancel = true;
             }
