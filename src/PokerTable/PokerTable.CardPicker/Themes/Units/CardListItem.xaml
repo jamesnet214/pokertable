@@ -4,29 +4,31 @@
     xmlns:units="clr-namespace:PokerTable.CardPicker.UI.Units">
 
     <Style TargetType="{x:Type units:CardListItem}">
-        <Setter Property="DragOverCheckCommand" Value="{Binding RelativeSource={RelativeSource AncestorType=ListBox}, Path=DataContext.DragOverCheckCommand}"/>
-        <Setter Property="Background" Value="#FAFAFA"/>
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BorderBrush" Value="#cccccc"/>
-        <Setter Property="Padding" Value="10"/>
-        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="DragOverCheckCommand" Value="{Binding RelativeSource={RelativeSource AncestorType=ListBox}, Path=DataContext.DragOverCheckCommand}" />
+        <Setter Property="DragEnterCommand" Value="{Binding RelativeSource={RelativeSource AncestorType=ListBox}, Path=DataContext.DragEnterCommand}" />
+        <Setter Property="Background" Value="#FAFAFA" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="#cccccc" />
+        <Setter Property="Padding" Value="10" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type units:CardListItem}">
-                    <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            Padding="{TemplateBinding Padding}">
-                        <TextBlock HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Text="{Binding Name}"/>
+                    <Border
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                        <TextBlock HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Text="{Binding Name}" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
-                                <Condition Binding="{Binding IsSlot}" Value="True"/>
-                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}" Value="True"/>
+                                <Condition Binding="{Binding IsSlot}" Value="True" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}" Value="True" />
                             </MultiDataTrigger.Conditions>
-                            <Setter Property="Cursor" Value="Hand"/>
-                            <Setter Property="Background" Value="#dfdfdf"/>
+                            <Setter Property="Cursor" Value="Hand" />
+                            <Setter Property="Background" Value="#dfdfdf" />
                         </MultiDataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

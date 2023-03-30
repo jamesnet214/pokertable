@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace PokerTable.CardPicker.Local.Models
 {
-    public class SbModel : SlotModel
-    {
-				public SbModel(int seatNumber) : base (seatNumber) { }
-
-				internal SlotModel DataGen()
+        public class SbModel : SlotModel
         {
-            Name = "SB";
-            return this;
+                public SbModel(int seatNumber) : base(seatNumber) { }
+
+                internal SlotModel DataGen()
+                {
+                        Name = "SB";
+                        return this;
+                }
         }
-    }
 }
