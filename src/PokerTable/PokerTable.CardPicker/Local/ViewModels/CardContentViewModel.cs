@@ -48,14 +48,14 @@ namespace PokerTable.CardPicker.Local.ViewModels
                 {
                         if (args.DroppedObject == null) return;
 
-                        if(args.DroppedObject.Name == "BB")
+                        if (args.DroppedObject.Name == "BB")
                         {
                                 if (args.TargetObject.Name == "SB" || args.TargetObject.Name == "Dealer")
                                         args.Cancel = true;
                         }
                         else if (args.DroppedObject.Name == "SB")
                         {
-                                if(args.TargetObject.Name == "Dealer")
+                                if (args.TargetObject.Name == "Dealer")
                                         args.Cancel = true;
                         }
                 }
@@ -80,6 +80,20 @@ namespace PokerTable.CardPicker.Local.ViewModels
                                 else if (DroppedObject.SeatNumber < TargetObject.SeatNumber) LastSlotFirst();
                                 else FirstSlotLast();
                         }
+                }
+
+                [RelayCommand]
+                private void ItemSelect(CardArgs args)
+                {
+                        if (args.DroppedObject.Name != "Dealer")
+                        {
+                                return;
+                        }
+                        var aa = this.Slots.Where(x => x.Name == "Dealer" || x.Name == "SB" || x.Name == "BB").ToList();
+                        if(args.mouseButtonState == System.Windows.Input.MouseButtonState.Pressed)
+                                aa.ForEach(y => y.IsSelected = true); 
+                        else
+                                aa.ForEach(y => y.IsSelected = false);
                 }
 
                 private void LastSlotFirst()

@@ -46,6 +46,20 @@ namespace PokerTable.CardPicker.UI.Units
                         get { return (ICommand)GetValue(DragEnterCommandProperty); }
                         set { SetValue(DragEnterCommandProperty, value); }
                 }
+
+                public static readonly DependencyProperty ItemSelectCommandProperty =
+                    DependencyProperty.Register(
+                        "ItemSelectCommand",
+                        typeof(ICommand),
+                        typeof(CardListItem),
+                        new PropertyMetadata(null));
+
+                public ICommand ItemSelectCommand
+                {
+                        get { return (ICommand)GetValue(ItemSelectCommandProperty); }
+                        set { SetValue(ItemSelectCommandProperty, value); }
+                }
+
                 private bool _isDragItem;
 
                 static CardListItem()
@@ -114,19 +128,29 @@ namespace PokerTable.CardPicker.UI.Units
                         if (_isDragItem && e.LeftButton == MouseButtonState.Pressed)
                         {
                                 var data = new DataObject();
-                                data.SetData("MyCustomFormat", this);
+                                data.SetData("MyCustomFormat", this);                                
                                 DragDrop.DoDragDrop((DependencyObject)this, data, DragDropEffects.Move);
                         }
+                }
+
+                protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+                {
+                        base.OnMouseLeftButtonDown(e);
+                        var obejct = this.DataContext as SlotModel;
+                        CardArgs args = new();
+                        args.mouseButtonState = MouseButtonState.Pressed;
+                        args.DroppedObject = obejct;
+                        ItemSelectCommand?.Execute(args);
                 }
 
                 protected override void OnDrop(DragEventArgs e)
                 {
                         base.OnDrop(e);
-
-                        if (!e.Source.Equals(this))
-                        {
-
-                        }
+                        var obejct = this.DataContext as SlotModel;
+                        CardArgs args = new();
+                        args.mouseButtonState = MouseButtonState.Released;
+                        args.DroppedObject = obejct;
+                        ItemSelectCommand?.Execute(args);
                 }
         }
 }

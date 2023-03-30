@@ -6,6 +6,7 @@
     <Style TargetType="{x:Type units:CardListItem}">
         <Setter Property="DragOverCheckCommand" Value="{Binding RelativeSource={RelativeSource AncestorType=ListBox}, Path=DataContext.DragOverCheckCommand}" />
         <Setter Property="DragEnterCommand" Value="{Binding RelativeSource={RelativeSource AncestorType=ListBox}, Path=DataContext.DragEnterCommand}" />
+        <Setter Property="ItemSelectCommand" Value="{Binding RelativeSource={RelativeSource AncestorType=ListBox}, Path=DataContext.ItemSelectCommand}" />
         <Setter Property="Background" Value="#FAFAFA" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="BorderBrush" Value="#cccccc" />
@@ -30,6 +31,10 @@
                             <Setter Property="Cursor" Value="Hand" />
                             <Setter Property="Background" Value="#dfdfdf" />
                         </MultiDataTrigger>
+                        <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                            <Setter Property="Background" Value="Green" />
+                            <Setter Property="Foreground" Value="White" />
+                        </DataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

@@ -1,11 +1,11 @@
 ﻿using PokerTable.CardPicker.Local.Models;
+using System.Windows.Input;
 
 namespace PokerTable.CardPicker.Local.Events
 {
-        public class CardDragOverArgs : CardArgs
+        public class CardArgs
         {
-                public SlotModel TargetObject { get; internal set; }
+                public MouseButtonState mouseButtonState { get; set; }
                 public SlotModel DroppedObject { get; internal set; }
-                public bool Cancel { get; set; }
         }
 }
